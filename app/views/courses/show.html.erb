@@ -1,0 +1,24 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+  <table class="table">
+    <thead></thead>
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td><%= @course.name %></h1></td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td><%= @course.description %></h1></td>
+      </tr>
+      <tr>
+        <td>Created At</td>
+        <td><%= @course.created_at.strftime("%d/%m/%Y") %></h1></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to 'Back', courses_path, class: 'btn btn-default' %>
+  <%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-primary' %>
+</div>
