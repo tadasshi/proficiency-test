@@ -1,2 +1,81 @@
 %div.container
   %h1= 'Application Home'
+
+  %h3= 'Courses'
+  - if !@courses.empty?
+    %table.table-responsive.table.table-bordered
+      %thead
+        %tr
+          %th= 'Name'
+          %th= 'Actions'
+      %tbody
+        - @courses.each do |course|
+          %tr
+            %td= link_to course.name, course
+            %td
+              = link_to edit_course_path(course) do
+                %span.glyphicon.glyphicon-edit{:aria_hidden=>'true'}
+              = link_to course, method: :delete, data: {confirm: 'Are you sure?'} do
+                %span.glyphicon.glyphicon-trash{:aria_hidden=>'true'}
+              = link_to course do
+                %span.glyphicon.glyphicon-eye-open{:aria_hidden=>'true'}
+  - else
+    = 'Nenhum registro encontrado!'
+
+  %hr
+  = link_to 'New Course', new_course_path, class: 'btn btn-primary'
+
+  %h3= 'Students'
+  - if !@students.empty?
+    %table.table-responsive.table.table-bordered
+      %thead
+        %tr
+          %th= 'Name'
+          %th= 'Actions'
+      %tbody
+        - @students.each do |student|
+          %tr
+            %td= link_to student.name, student
+            %td
+              = link_to edit_student_path(student) do
+                %span.glyphicon.glyphicon-edit{:aria_hidden=>'true'}
+              = link_to student, method: :delete, data: {confirm: 'Are you sure?'} do
+                %span.glyphicon.glyphicon-trash{:aria_hidden=>'true'}
+              = link_to student do
+                %span.glyphicon.glyphicon-eye-open{:aria_hidden=>'true'}
+  - else
+    = 'Nenhum registro encontrado!'
+
+  %hr
+  = link_to 'New Student', new_student_path, class: 'btn btn-primary'
+
+
+
+
+  %h3= 'Classrooms'
+  - if !@classrooms.empty?
+    %table.table-responsive.table.table-bordered
+      %thead
+        %tr
+          %th= 'Student'
+          %th= 'Course'
+          %th= 'Created At'
+          %th= 'Actions'
+      %tbody
+        - @classrooms.each do |classroom|
+          %tr
+            %td= link_to classroom.student.name, classroom.student
+            %td= link_to classroom.course.name, classroom.course
+            %td= classroom.created_at.strftime("%d/%m/%Y")
+            %td
+              = link_to edit_classroom_path(classroom) do
+                %span.glyphicon.glyphicon-edit{:aria_hidden=>'true'}
+              = link_to classroom, method: :delete, data: {confirm: 'Are you sure?'} do
+                %span.glyphicon.glyphicon-trash{:aria_hidden=>'true'}
+              = link_to classroom do
+                %span.glyphicon.glyphicon-eye-open{:aria_hidden=>'true'}
+  - else
+    = 'Nenhum registro encontrado!'
+
+  %hr
+  = link_to 'New classroom', new_classroom_path, class: 'btn btn-primary'
