@@ -9,7 +9,6 @@ class ClassroomsController < ApplicationController
     else
       @classrooms = Classroom.order("created_at DESC")
     end
-
   end
 
   # GET /classrooms/1

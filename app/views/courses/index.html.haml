@@ -10,23 +10,25 @@
             %span.glyphicon.glyphicon-search{:aria_hidden=>'true'}
   %br
   %br
-
-  %table.table-responsive.table.table-bordered
-    %thead
-      %tr
-        %th= 'Name'
-        %th= 'Actions'
-    %tbody
-      - @courses.each do |course|
+  - if !@classrooms.empty?
+    %table.table-responsive.table.table-bordered
+      %thead
         %tr
-          %td= link_to course.name, course
-          %td
-            = link_to edit_course_path(course) do
-              %span.glyphicon.glyphicon-edit{:aria_hidden=>'true'}
-            = link_to course, method: :delete, data: {confirm: 'Are you sure?'} do
-              %span.glyphicon.glyphicon-trash{:aria_hidden=>'true'}
-            = link_to course do
-              %span.glyphicon.glyphicon-eye-open{:aria_hidden=>'true'}
+          %th= 'Name'
+          %th= 'Actions'
+      %tbody
+        - @courses.each do |course|
+          %tr
+            %td= link_to course.name, course
+            %td
+              = link_to edit_course_path(course) do
+                %span.glyphicon.glyphicon-edit{:aria_hidden=>'true'}
+              = link_to course, method: :delete, data: {confirm: 'Are you sure?'} do
+                %span.glyphicon.glyphicon-trash{:aria_hidden=>'true'}
+              = link_to course do
+                %span.glyphicon.glyphicon-eye-open{:aria_hidden=>'true'}
+  - else
+    = 'Nenhum registro encontrado!'
 
-
+  %hr
   = link_to 'New Course', new_course_path, class: 'btn btn-primary'

@@ -11,5 +11,8 @@
       %tr
         %td= 'Created At'
         %td= @student.created_at.strftime("%d/%m/%Y")
+
+  %hr
+
   =link_to 'Back', students_path, class: 'btn btn-default'
   =link_to 'Edit', edit_student_path(@student), class: 'btn btn-primary'
