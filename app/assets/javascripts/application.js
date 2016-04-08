@@ -53,6 +53,16 @@ window.onload = function () {
         }
     });
 
+    $("#form-classroom").validate({
+        rules: {
+            "classroom[student_id]": "required",
+            "classroom[course_id]": "required"
+        }, messages: {
+            "classroom[student_id]": "Required Field!",
+            "classroom[course_id]": "Required Field!"
+        }
+    });
+
     $("#form-student").validate({
         rules: {
             "student[name]": "required",
