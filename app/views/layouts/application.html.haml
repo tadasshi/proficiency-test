@@ -1,0 +1,85 @@
+!!! 5
+
+%html{:lang=>'pt-br'}
+  %head
+    %title= 'Tadashi - Proficiency Test'
+
+    %meta{:charset=>'utf-8'}
+    %meta{'http-equiv': 'X-UA-Compatible', :content=>'IE=edge'}
+    %meta{:name=>'viewport', :content=>'width=device-width, initial-scale=1'}
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+
+    %header
+      %nav.navbar.navbar-default
+        <!-- Brand and toggle get grouped for better mobile display -->
+        %div.container
+
+
+          %div.navbar-header
+            %button.navbar-toggle.collapsed{'data-toggle': 'collapse', :type=>'button', 'data-target': '#bs-example-navbar-collapse-1','aria-expanded':'false'}
+              %span.sr-only= 'Toggle navigation'
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            = link_to 'Thiago Tadashi - Proficiency Test', root_path,  class: 'navbar-brand'
+
+          %div.collapse.navbar-collapse{:id=>'bs-example-navbar-collapse-1'}
+            %ul.nav.navbar-nav.navbar-right
+              %li.dropdown
+                = link_to '#', class: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' do
+                  = 'Courses'
+                  %spa.caret
+
+                %ul.dropdown-menu
+                  %li
+                    = link_to courses_path do
+                      %span.glyphicon.glyphicon-th-list{'aria-hidden': 'true'}
+                      &= 'Lista'
+
+                  %li
+                    = link_to new_course_path do
+                      %span.glyphicon.glyphicon-plus{'aria-hidden': 'true'}
+                      &= 'New'
+
+              %li.dropdown
+                = link_to '#', class: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' do
+                  = 'Students'
+                  %span.caret
+
+                %ul.dropdown-menu
+                  %li
+                    = link_to students_path do
+                      %span.glyphicon.glyphicon-th-list{'aria-hidden': 'true'}
+                      &= 'Lista'
+                  %li
+                    = link_to new_student_path do
+                      %span.glyphicon.glyphicon-plus{'aria-hidden': 'true'}
+                      &= 'New'
+
+              %li.dropdown
+                = link_to '#', class: 'dropdown-toggle', 'data-toggle': 'dropdown', role: 'button', 'aria-haspopup': 'true', 'aria-expanded': 'false' do
+                  = 'Classrooms'
+                  %span.caret
+
+                %ul.dropdown-menu
+                  %li
+                    = link_to classrooms_path do
+                      %span.glyphicon.glyphicon-th-list{'aria-hidden': 'true'}
+                      &= 'Lista'
+                  %li
+                    = link_to new_classroom_path do
+                      %span.glyphicon.glyphicon-plus{'aria-hidden': 'true'}
+                      &= 'New'
+
+    %section
+      = yield
+
+    %footer
+
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.min.js'

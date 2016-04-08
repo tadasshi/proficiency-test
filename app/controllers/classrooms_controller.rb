@@ -22,10 +22,14 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/new
   def new
     @classroom = Classroom.new
+    @students = Student.all
+    @courses = Course.all
   end
 
   # GET /classrooms/1/edit
   def edit
+    @students = Student.all
+    @courses = Course.all
   end
 
   # POST /classrooms
@@ -34,7 +38,7 @@ class ClassroomsController < ApplicationController
     @classroom = Classroom.new(classroom_params)
 
     respond_to do |format|
-      if @classrooms.save
+      if @classroom.save
         format.html { redirect_to @classroom, notice: 'classroom was successfully created.' }
         format.json { render :show, status: :created, location: @classroom }
       else
@@ -75,7 +79,7 @@ class ClassroomsController < ApplicationController
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def classrooms_params
+  def classroom_params
     params.require(:classroom).permit(:student_id, :course_id)
   end
 end

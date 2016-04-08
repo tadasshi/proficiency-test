@@ -1,0 +1,15 @@
+%div.container
+  %p.notice= notice
+  %table.table.table-bordered.table-responsible
+    %tbody
+      %tr
+        %td= 'Student'
+        %td= @classroom.student.name
+      %tr
+        %td= 'Course  '
+        %td= @classroom.course.name
+      %tr
+        %td= 'Created At'
+        %td= @classroom.created_at.strftime("%d/%m/%Y")
+  =link_to 'Back', classrooms_path, class: 'btn btn-default'
+  =link_to 'Edit', edit_classroom_path(@classroom), class: 'btn btn-primary'

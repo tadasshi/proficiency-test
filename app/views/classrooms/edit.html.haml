@@ -1,0 +1,7 @@
+%div.container
+  %h1= 'Editing classroom'
+  = render 'form'
+  %br
+  =link_to 'Show', @classroom, class: 'btn btn-default'
+  = '|'
+  =link_to 'Back', classrooms_path, class: 'btn btn-primary'

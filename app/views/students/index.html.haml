@@ -1,0 +1,30 @@
+%div.container
+  %p.notice= notice
+  %h1= 'Listing Students'
+  %div
+    = form_tag(students_path, method: 'get', class: 'pull-right', role: 'search', id: 'nav-search') do
+      %div.input-group
+        = text_field_tag :search, params[:search], class:'form-control l', placeholder: 'busco por...'
+        %span.input-group-btn
+          %button.btn.btn-default
+            %span.glyphicon.glyphicon-search{:aria_hidden=>'true'}
+  %br
+  %br
+
+  %table.table-responsive.table.table-bordered
+    %thead
+      %tr
+        %th= 'Name'
+        %th= 'Actions'
+    %tbody
+      - @students.each do |student|
+        %tr
+          %td= link_to student.name, student
+          %td
+            = link_to edit_student_path(student) do
+              %span.glyphicon.glyphicon-edit{:aria_hidden=>'true'}
+            = link_to student, method: :delete, data: {confirm: 'Are you sure?'} do
+              %span.glyphicon.glyphicon-trash{:aria_hidden=>'true'}
+
+
+  = link_to 'New Student', new_student_path, class: 'btn btn-primary'

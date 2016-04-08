@@ -1,0 +1,21 @@
+= form_for(@classroom, :html => {:multipart => true, :id => 'form-classroom'}) do |f|
+
+  - if @classroom.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@classroom.errors.count, "error")
+        &= 'prohibited this classroom from being saved:'
+        %ul
+          - @classroom.errors.full_messages.each do |message|
+            %li= message
+
+  %div.form-group
+    = f.label :student_id
+    = f.select :student_id, @students.collect {|student| [ student.name, student.id ]}, :selected => @classroom.student_id, :include_blank => true, class: 'form-control'
+
+  %div.form-group
+    = f.label :course_id
+    = f.select :course_id, @courses.collect {|course| [ course.name, course.id ]},:include_blank => true , :selected => @classroom.course_id
+
+  %div.actions
+    = f.submit 'Submit', class: 'btn btn-primary'

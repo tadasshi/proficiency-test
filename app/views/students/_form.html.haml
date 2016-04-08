@@ -1,0 +1,21 @@
+= form_for(@student, :html => {:multipart => true, :id => 'form-student' }) do |f|
+
+  - if @student.errors.any?
+    %div#error_explanation
+      %h2
+        = pluralize(@student.errors.count, "error")
+        &= 'prohibited this course from being saved:'
+        %ul
+          - @student.errors.full_messages.each do |message|
+            %li= message
+
+  %div.form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+
+  %div.form-group
+    = f.label :register_number
+    = f.text_field :register_number, class: 'form-control register_number'
+
+  %div.actions
+    = f.submit 'Submit', class: 'btn btn-primary'
