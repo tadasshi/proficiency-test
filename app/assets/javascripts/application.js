@@ -17,8 +17,8 @@
 //= require_self
 //= require_tree .
 
-$(document).ready(function () {
 
+window.onload = function () {
     $.validator.setDefaults({
         errorElement: "em",
         errorPlacement: function (error, element) {
@@ -70,4 +70,4 @@ $(document).ready(function () {
     });
 
     $('.register_number').mask('000.000-00');
-});
+};
