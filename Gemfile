@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
-
+ruby '2.2.4'
 gem 'rails', '4.1.4'
 
 # Use SCSS for stylesheets
@@ -33,6 +33,7 @@ gem 'pg', '~> 0.17.1'
 # Rails bootstrap
 # http://www.rubydoc.info/gems/bootstrap-sass/3.3.6
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'rails_12factor'
 
 group :doc do
   gem 'sdoc', require: false

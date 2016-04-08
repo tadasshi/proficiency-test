@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  root 'courses#index'
+  root 'home#home'
+
+  get 'home/home'
+
   resources :courses
   resources :classrooms
   resources :students
