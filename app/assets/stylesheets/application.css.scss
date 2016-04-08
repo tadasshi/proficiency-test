@@ -109,6 +109,11 @@ textarea {
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
+  background-image: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/concrete_seamless.png");
+}
+
+table {
+  background-color: #fff;
 }
 
 .form-control, .btn, .input-group-addon {
@@ -119,7 +124,7 @@ label {
   font-weight: 400;
 }
 
-.table i.fa {
+.table span.glyphicon {
   font-size: 20px;
   margin: 0 10px;
 }

@@ -11,11 +11,17 @@
 
   %div.form-group
     = f.label :name
-    = f.text_field :name, class: 'form-control'
+    %div.input-group
+      %span.input-group-addon
+        %span.glyphicon.glyphicon-text-size
+      = f.text_field :name, class: 'form-control'
 
   %div.form-group
     = f.label :register_number
-    = f.text_field :register_number, class: 'form-control register_number'
+    %div.input-group
+      %span.input-group-addon
+        %span.glyphicon.glyphicon-asterisk
+      = f.text_field :register_number, class: 'form-control register_number'
 
   %div.actions
     = f.submit 'Submit', class: 'btn btn-primary'

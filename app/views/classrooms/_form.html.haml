@@ -11,11 +11,17 @@
 
   %div.form-group
     = f.label :student_id
-    = f.select :student_id, @students.collect {|student| [ student.name, student.id ]}, :selected => @classroom.student_id, :include_blank => true, class: 'form-control'
+    %div.input-group
+      %span.input-group-addon
+        %span.glyphicon.glyphicon-user
+      = f.select :student_id, @students.collect {|student| [ student.name, student.id ]}, {:include_blank => true}, {:class=> 'form-control'}
 
   %div.form-group
     = f.label :course_id
-    = f.select :course_id, @courses.collect {|course| [ course.name, course.id ]},:include_blank => true , :selected => @classroom.course_id
+    %div.input-group
+      %span.input-group-addon
+        %span.glyphicon.glyphicon-education
+      = f.select :course_id, @courses.collect {|course| [ course.name, course.id ]}, {:include_blank => true}, {:class=> 'form-control'}
 
   %div.actions
     = f.submit 'Submit', class: 'btn btn-primary'

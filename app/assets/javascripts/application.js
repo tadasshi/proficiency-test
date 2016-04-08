@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require turbolinks
+// require turbolinks
 //= require_self
 //= require_tree .
 
@@ -28,7 +28,11 @@ $(document).ready(function () {
             if (element.prop("type") === "checkbox") {
                 error.insertAfter(element.parent("label"));
             } else {
-                error.insertAfter(element);
+                if (element.parent(".input-group").length) {
+                    error.insertAfter(element.parent(".input-group"));
+                } else {
+                    error.insertAfter(element);
+                }
             }
         },
         highlight: function (element, errorClass, validClass) {
@@ -52,10 +56,16 @@ $(document).ready(function () {
     $("#form-student").validate({
         rules: {
             "student[name]": "required",
-            "student[register_number]": "required"
+            "student[register_number]": {
+                required: true,
+                minlength: 10
+            }
         }, messages: {
-            "student[name]": "Required Field!e",
-            "student[register_number]": "Required Field!"
+            "student[name]": "Required Field!",
+            "student[register_number]": {
+                required: "Required Field!",
+                minlength: "8 Números"
+            }
         }
     });
 

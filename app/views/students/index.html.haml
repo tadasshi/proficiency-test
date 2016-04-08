@@ -25,6 +25,8 @@
               %span.glyphicon.glyphicon-edit{:aria_hidden=>'true'}
             = link_to student, method: :delete, data: {confirm: 'Are you sure?'} do
               %span.glyphicon.glyphicon-trash{:aria_hidden=>'true'}
+            = link_to student do
+              %span.glyphicon.glyphicon-eye-open{:aria_hidden=>'true'}
 
 
   = link_to 'New Student', new_student_path, class: 'btn btn-primary'
